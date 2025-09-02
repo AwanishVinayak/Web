@@ -1,0 +1,116 @@
+:root {
+    --rough-brown: #3E160C;
+    --gold: #785D32;
+    --pale: #E8D9C4;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--rough-brown);
+    color: var(--pale);
+    scroll-behavior: smooth;
+    background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Background+Image');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+h1, h2, .font-serif {
+    font-family: 'Didot Prime', serif;
+}
+
+.text-accent {
+    color: var(--gold);
+}
+
+.bg-accent {
+    background-color: var(--gold);
+}
+
+/* Subtle hero background animation */
+.hero-bg {
+    background: radial-gradient(circle at 50% 10%, rgba(120, 93, 50, 0.1) 0%, transparent 40%);
+    animation: moonlit-glow 15s infinite ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+@keyframes moonlit-glow {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(120, 93, 50, 0.2);
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-item {
+    flex: 0 0 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--pale);
+    font-size: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.carousel-btn.left {
+    left: 1rem;
+}
+
+.carousel-btn.right {
+    right: 1rem;
+}
