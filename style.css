@@ -1,57 +1,44 @@
 :root {
-    --rough-brown: #3E160C;
-    --gold: #785D32;
-    --pale: #E8D9C4;
+    --seductive-burgundy: #6D071A; /* A deep, rich red, almost brown */
+    --accent: #FFD700; /* A vibrant, luxurious gold */
+    --soft-cream: #F5F5DC; /* A gentle, off-white for contrast */
 }
 
 body {
+    background-color: var(--seductive-burgundy);
+    color: var(--soft-cream);
     font-family: 'Inter', sans-serif;
-    background-color: var(--rough-brown);
-    color: var(--pale);
-    scroll-behavior: smooth;
-    background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Background+Image');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    transition: background-color 0.5s ease-in-out;
 }
 
-h1, h2, .font-serif {
+h1, h2, h3 {
     font-family: 'Didot Prime', serif;
 }
 
-.text-accent {
-    color: var(--gold);
-}
-
-.bg-accent {
-    background-color: var(--gold);
-}
-
-/* Subtle hero background animation */
+/* Hero Section */
 .hero-bg {
-    background: radial-gradient(circle at 50% 10%, rgba(120, 93, 50, 0.1) 0%, transparent 40%);
-    animation: moonlit-glow 15s infinite ease-in-out;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    background: linear-gradient(135deg, rgba(109, 7, 26, 0.8), rgba(0, 0, 0, 0.8)), 
+                url(https://images.unsplash.com/photo-1542037108-a400de9719ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat center center;
+    background-size: cover;
+    filter: brightness(0.7) contrast(1.2);
+    animation: hero-bg-animation 20s infinite alternate;
 }
 
-@keyframes moonlit-glow {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+@keyframes hero-bg-animation {
+    0% { transform: scale(1.0); }
+    100% { transform: scale(1.1); }
 }
 
+/* General Fade-In Effect */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in.is-visible {
@@ -59,15 +46,17 @@ h1, h2, .font-serif {
     transform: translateY(0);
 }
 
+/* Product Card Hover Effect */
 .product-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(120, 93, 50, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Testimonials Carousel */
 .carousel-container {
     position: relative;
     overflow: hidden;
@@ -79,8 +68,9 @@ h1, h2, .font-serif {
 }
 
 .testimonial-item {
-    flex: 0 0 100%;
-    padding: 2rem;
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
     text-align: center;
 }
 
@@ -88,29 +78,19 @@ h1, h2, .font-serif {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
+    padding: 10px 15px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--pale);
-    font-size: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
     z-index: 10;
+    border-radius: 50%;
+    transition: background 0.3s ease;
 }
 
 .carousel-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.8);
 }
 
-.carousel-btn.left {
-    left: 1rem;
-}
-
-.carousel-btn.right {
-    right: 1rem;
-}
+.carousel-btn.left { left: 0; }
+.carousel-btn.right { right: 0; }
